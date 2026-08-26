@@ -1,10 +1,10 @@
 // object
 
 let info = {
-  firstName: "Abir",
-  lastName: "Das",
-  dob: "1995-10-31",
-  address: "Chittagong",
+    firstName: "Abir",
+    lastName: "Das",
+    dob: "1995-10-31",
+    address: "Chittagong"
 };
 
 console.log(info);
