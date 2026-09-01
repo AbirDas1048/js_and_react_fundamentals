@@ -1,0 +1,27 @@
+const getChaseVerdict = (target, scored, ballsLeft) => {
+    let runsNeeded = target - scored;
+
+    if (runsNeeded <= 0) return "Won";
+    if (ballsLeft <= 0) return "Lost";
+
+    let requiredRate = (runsNeeded / ballsLeft) * 6;
+
+    let verdict = requiredRate <= 6
+        ? "Comfortable"
+        : requiredRate <= 12
+            ? "Tough"
+            : "Almost Impossible";
+
+    return `Need ${runsNeeded} runs in ${ballsLeft} balls | ${verdict}`;
+};
+
+console.log(getChaseVerdict(200, 200, 12));	// "Won"
+console.log(getChaseVerdict(200, 190, 0));	// "Lost"
+console.log(getChaseVerdict(100, 90, 12));	// "Need 10 runs in 12 balls | Comfortable"
+console.log(getChaseVerdict(100, 80, 12));	// "Need 20 runs in 12 balls | Tough"
+console.log(getChaseVerdict(100, 70, 12));	// "Need 30 runs in 12 balls | Almost Impossible"
+console.log(getChaseVerdict(150, 149, 1));	// "Need 1 runs in 1 balls | Comfortable"
+console.log(getChaseVerdict(150, 140, 1));	// "Need 10 runs in 1 balls | Almost Impossible"
+console.log(getChaseVerdict(150, 140, -5));	// "Lost"
+console.log(getChaseVerdict(-150, 140, 0));	// "Won"
+console.log(getChaseVerdict(0, 0, 0));	// "Won"

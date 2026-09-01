@@ -1,0 +1,26 @@
+function describeValue(text){
+    return `${typeof text} | ${Boolean(text) ? "truthy" : "falsy"}`;
+}
+
+console.log(describeValue("hello")); // "string | truthy"
+console.log(describeValue("")); // "string | falsy"
+console.log(describeValue(25)); // "number | truthy"
+console.log(describeValue(0)); // "number | falsy"
+console.log(describeValue(true)); // "boolean | truthy"
+console.log(describeValue(null)); // "object | falsy"
+console.log(describeValue(undefined)); // "undefined | falsy"
+console.log(describeValue("0")); // "string | truthy"
+console.log(describeValue(NaN)); // "number | falsy"
+console.log(describeValue([])); // "object | truthy"
+console.log(describeValue({})); // "object | truthy"
+console.log(describeValue(function(){})); // "function | truthy"
+console.log(describeValue(Symbol("symbol"))); // "symbol | truthy"
+console.log(describeValue(BigInt(10))); // "bigint | truthy"
+console.log(describeValue(false)); // "boolean | falsy"
+console.log(describeValue(-1)); // "number | truthy"
+console.log(describeValue("false")); // "string | truthy"
+console.log(describeValue("null")); // "string | truthy"
+console.log(describeValue("undefined")); // "string | truthy"
+console.log(describeValue("NaN")); // "string | truthy"
+console.log(describeValue("[]")); // "string | truthy"
+console.log(describeValue(-0)); // "number | falsy"
